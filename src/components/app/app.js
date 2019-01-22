@@ -16,7 +16,8 @@ const App = () => {
         {label: "This is post's text", important: true, id: "qwer"},
         {label: "Another post", important: false, id: "sdfsdf"},
         {label: "One more post", important: false, id: "xcvxv"},
-        {length: 4, value: true}
+        {length: 4, value: true},
+        {id: 4}
     ]
 
     return (
