@@ -6,7 +6,9 @@ import PostListItem from "../post-list-item/post-list-item";
 
 const PostList = ({posts}) => {
 
-    const elements = posts.map((item) => {
+    let elements = posts.filter((item) => (typeof(item) == "object" && item.id !== undefined));
+
+    elements = elements.map((item) => {
 
         const {id, ...itemProps} = item
         return(
