@@ -2,18 +2,31 @@
   font-size: 1.25rem;
 }
 
-.app-list-item button {
+/* .app-list-item button {
   width: 35px;
   height: 35px;
   margin: 3px;
   font-size: 17px;
   border: none;
   cursor: pointer;
-}
+} */
 .app-list-item button:focus {
     box-shadow: none;
     outline: none;
 }
+
+.btn-star, .btn-trash{
+    width: 35px;
+    height: 35px;
+    margin: 3px;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+}
+/* .btn-star:focus, .btn-trash:focus{
+    box-shadow: none;
+    outline: none;
+} */
 .app-list-item .btn-star {
     color: #FFD700;
 }
@@ -68,4 +81,19 @@
     margin: 0 2px;
     text-align: center;
     user-select: none;
+}
+
+.changePost{
+    position: absolute;
+    z-index: 10;
+    width: 600px;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 1px solid #ced4da;
+    border-radius: 3px;
+    padding: 30px;
+    background-color: #fff;
+    visibility: hidden;
+    transition: 0.5s all;
 }
