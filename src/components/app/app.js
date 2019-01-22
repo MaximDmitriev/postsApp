@@ -9,6 +9,17 @@ import PostAddForm from "../post-add-form/post-add-form"
 import "./app.css";
 
 const App = () => {
+
+    let data = [
+        1,
+        {label: "This is post's text", important: true, id: "qwer"},
+        {label: "Another post", important: false, id: "sdfsdf"},
+        {label: "One more post", important: false, id: "xcvxv"},
+        {length: 4, value: true}
+    ]
+
+    data = data.filter((item) => (typeof(item) == "object" && item.id !== undefined));
+
     return (
         <div className="app">
             <AppHeader />
@@ -16,9 +27,10 @@ const App = () => {
                 <SearchPanel />
                 <PostStatusFilter />
             </div>
-            <PostList />
+            <PostList posts = {data}/>
             <PostAddForm />
         </div>
     )
 }
+
 export default App;
