@@ -47,8 +47,7 @@ export default class PostListItem extends Component {
                 inputForm = forms.querySelector("input");
 
             inputForm.value = this.state.label;
-        },1);
-       
+        },1);  
     }
 
     onPostChange() {
@@ -58,15 +57,13 @@ export default class PostListItem extends Component {
         let forms = document.querySelector(".visible"),
             inputForm = forms.querySelector("input");
 
-        this.setState(({label}) => ({
+        this.setState(() => ({
             label: inputForm.value
         }))
-
-
     }
 
     render() {
-        const {onDelete} = this.props;
+        const {onDeleteRequest} = this.props;
         const {important, like, showForm, label} = this.state;
 
         let classNames = "app-list-item d-flex justify-content-between";
@@ -106,7 +103,7 @@ export default class PostListItem extends Component {
                     <button 
                         type="button" 
                         className="btn-trash btn-sm"
-                        onClick={onDelete}>
+                        onClick={onDeleteRequest}>
                             <i className="fa fa-trash-o"></i>
                     </button>
                     <i className="fa fa-heart"></i>

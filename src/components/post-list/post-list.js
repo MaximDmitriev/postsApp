@@ -5,7 +5,7 @@ import "./post-list.css";
 
 import PostListItem from "../post-list-item/post-list-item";
 
-const PostList = ({posts, onDelete}) => {
+const PostList = ({posts, onDeleteRequest}) => {
 
     // let elements = posts.filter((item) => (typeof(item) == "object" && item.id !== undefined && item.label !== undefined));
 
@@ -16,7 +16,7 @@ const PostList = ({posts, onDelete}) => {
             <li key={id} className="list-group-item">
                 <PostListItem 
                     {...itemProps}
-                    onDelete={() => onDelete(id)}
+                    onDeleteRequest={() => onDeleteRequest(id)}
                     />
             </li>
         )
