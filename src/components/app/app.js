@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import idGenerator from "react-id-generator";
+import styled from 'styled-components';
 
 import AppHeader from "../app-header/app-header";
 import SearchPanel from "../search-panel/search-panel";
@@ -9,6 +10,10 @@ import PostAddForm from "../post-add-form/post-add-form";
 
 import "./app.css";
 
+const AppWrapper = styled.div`
+  margin: 0 auto;
+  max-width: 800px;
+`
 export default class App extends Component  {
 
     constructor(props) {
@@ -65,7 +70,7 @@ export default class App extends Component  {
 
     render() {
         return (
-            <div className="app">
+            <AppWrapper>
                 <AppHeader />
                 <div className="search-panel d-flex">
                     <SearchPanel />
@@ -77,8 +82,7 @@ export default class App extends Component  {
                     />
                 <PostAddForm 
                     onAdd={this.addItem}/>
-    
-            </div>
+            </AppWrapper>
         )
     }
 
