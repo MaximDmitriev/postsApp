@@ -4,23 +4,26 @@ import "./post-list.css";
 
 import PostListItem from "../post-list-item/post-list-item";
 
-const PostList = ({posts}) => {
+const PostList = ({posts, onDelete}) => {
 
-    let elements = posts.filter((item) => (typeof(item) == "object" && item.id !== undefined && item.label !== undefined));
+    // let elements = posts.filter((item) => (typeof(item) == "object" && item.id !== undefined && item.label !== undefined));
 
-    elements = elements.map((item) => {
+    posts = posts.map((item) => {
 
         const {id, ...itemProps} = item
         return(
             <li key={id} className="list-group-item">
-                <PostListItem {...itemProps}/>
+                <PostListItem 
+                    {...itemProps}
+                    onDelete={() => onDelete(id)}
+                    />
             </li>
         )
     });
 
     return(
         <ul className="app-list list-group">
-            {elements}
+            {posts}
         </ul>
     )
 }
