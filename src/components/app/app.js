@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import idGenerator from "react-id-generator";
+// import idGenerator from "react-id-generator";
 import styled from 'styled-components';
 
 import AppHeader from "../app-header/app-header";
@@ -26,9 +26,11 @@ export default class App extends Component  {
             {id: 4}
         ]
         const elements = data.filter((item) => (typeof(item) == "object" && item.id !== undefined && item.label !== undefined));
+        
+
 
         this.state = {
-            data: elements
+            data: elements,
         }
 
         this.deleteItem = this.deleteItem.bind(this);
@@ -51,10 +53,20 @@ export default class App extends Component  {
     }
 
     addItem(body) {
+
+        let idArr = [];
+        this.state.data.forEach(item => idArr.push(item.id));
+        let newId;
+        
+        do {
+            newId = (Math.random()*1000).toFixed();
+        }
+        while (idArr.includes(newId));
+
         const newItem = {
             label: body,
             important: false,
-            id: idGenerator()
+            id: newId
         }
 
         this.setState(({data}) => {
