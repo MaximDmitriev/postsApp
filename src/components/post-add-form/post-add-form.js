@@ -2,14 +2,17 @@ import React from 'react';
 import { Button, Input } from 'reactstrap';
 import styled from 'styled-components';
 
-import "./post-add-form.css";
-
 const AddForm = styled.div`
     display: flex;
     width: auto;
     flex-grow: 1;
     margin-right: 3px;
     margin-top: 20px;
+    input{
+        width: auto;
+        flex-grow: 1;
+        margin-right: 3px;
+    }
 `
 const PostAddForm = ({onAdd}) => {
 
@@ -18,7 +21,6 @@ const PostAddForm = ({onAdd}) => {
             <Input
                 type="text"
                 placeholder="О чем вы думаете сейчас"
-                className="new-post-label"
             />
             <Button 
                 type="submit"

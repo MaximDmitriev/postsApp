@@ -8,8 +8,6 @@ import PostStatusFilter from "../post-status-filter/post-status-filter";
 import PostList from "../post-list/post-list";
 import PostAddForm from "../post-add-form/post-add-form";
 
-import "./app.css";
-
 const AppWrapper = styled.div`
   margin: 0 auto;
   max-width: 800px;
