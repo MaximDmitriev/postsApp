@@ -23,9 +23,9 @@ const AppHeader = ({liked, allPosts}) => {
 
     allPosts > 9 ? checkNum = allPosts % 10 : checkNum = allPosts; 
 
-    if (checkNum === 0 || (checkNum > 4  && !excludes.includes(allPosts))) word = words[0];
-    if (checkNum === 1) word = words[2];
-    if (checkNum > 1 && checkNum < 5) word = words[1];
+    if (checkNum === 0 || checkNum > 4  || excludes.includes(allPosts)) word = words[0];
+    if (checkNum === 1 && !excludes.includes(allPosts)) word = words[2];
+    if (checkNum > 1 && checkNum < 5 && !excludes.includes(allPosts)) word = words[1];
 
     return (
         <AppHeaderWrapper>

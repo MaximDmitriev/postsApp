@@ -46,6 +46,18 @@ export default class App extends Component  {
         this.onFilterSelect = this.onFilterSelect.bind(this);
     }
 
+    getRandomId() {
+        let idArr = [];
+        this.state.data.forEach(item => idArr.push(item.id));
+        let newId;
+
+        do {
+            newId = (Math.random()*1000).toFixed();
+        }
+        while (idArr.includes(newId));
+        return newId;
+    }
+
     deleteItemRequest(id) {
         this.setState(() => {
             return {
@@ -74,19 +86,11 @@ export default class App extends Component  {
 
     addItem(body) {
 
-        let idArr = [];
-        this.state.data.forEach(item => idArr.push(item.id));
-        let newId;
-
-        do {
-            newId = (Math.random()*1000).toFixed();
-        }
-        while (idArr.includes(newId));
-
         const newItem = {
             label: body,
             important: false,
-            id: newId
+            like: false,
+            id: this.getRandomId()
         }
 
         this.setState(({data}) => {
