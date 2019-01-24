@@ -8,13 +8,13 @@ export default class PostListItem extends Component {
         super(props);
         this.state = {
             label: this.props.label,
-            important: this.props.important,
-            like: false,
+            // important: this.props.important,
+            // like: false,
             showForm: false
         }
 
-        this.onImportant = this.onImportant.bind(this);
-        this.onLike = this.onLike.bind(this);
+        // this.onImportant = this.onImportant.bind(this);
+        // this.onLike = this.onLike.bind(this);
         this.onToggleClass = this.onToggleClass.bind(this);
         this.onPostChange = this.onPostChange.bind(this);
 
@@ -26,17 +26,17 @@ export default class PostListItem extends Component {
     } 
 
     
-    onImportant() {
-        this.setState(({important}) => ({
-            important: !important
-        }))
-    }
+    // onImportant() {
+    //     this.setState(({important}) => ({
+    //         important: !important
+    //     }))
+    // }
 
-    onLike() {
-        this.setState(({like}) => ({
-            like: !like
-        }))
-    }
+    // onLike() {
+    //     this.setState(({like}) => ({
+    //         like: !like
+    //     }))
+    // }
 
     onToggleClass() {
         this.setState(({showForm}) => ({
@@ -63,8 +63,8 @@ export default class PostListItem extends Component {
     }
 
     render() {
-        const {onDeleteRequest} = this.props;
-        const {important, like, showForm, label} = this.state;
+        const {onDeleteRequest, onToggleImportant, onToggleLiked, important, like} = this.props;
+        const {showForm, label} = this.state;
 
         let classNames = "app-list-item d-flex justify-content-between";
         let classNameForm = "changePost";
@@ -84,7 +84,7 @@ export default class PostListItem extends Component {
             <div className={classNames}>
                 <span 
                     className="app-list-item-label"
-                    onClick={this.onLike}>
+                    onClick={onToggleLiked}>
                     {label}
                 </span>
 
@@ -97,7 +97,7 @@ export default class PostListItem extends Component {
                     <button 
                         type="button" 
                         className="btn-star btn-sm"
-                        onClick={this.onImportant}>
+                        onClick={onToggleImportant}>
                             <i className="fa fa-star"></i>
                     </button>
                     <button 

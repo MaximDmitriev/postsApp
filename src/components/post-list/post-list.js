@@ -5,7 +5,7 @@ import "./post-list.css";
 
 import PostListItem from "../post-list-item/post-list-item";
 
-const PostList = ({posts, onDeleteRequest}) => {
+const PostList = ({posts, onDeleteRequest, onToggleImportant, onToggleLiked}) => {
 
     // let elements = posts.filter((item) => (typeof(item) == "object" && item.id !== undefined && item.label !== undefined));
 
@@ -17,6 +17,8 @@ const PostList = ({posts, onDeleteRequest}) => {
                 <PostListItem 
                     {...itemProps}
                     onDeleteRequest={() => onDeleteRequest(id)}
+                    onToggleImportant={() => onToggleImportant(id)}
+                    onToggleLiked={() => onToggleLiked(id)}
                     />
             </li>
         )
