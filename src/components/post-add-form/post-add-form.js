@@ -24,8 +24,6 @@ export default class PostAddForm extends Component {
         
         this.onValueChange = this.onValueChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
-
-        
     }
 
     onValueChange(event) {
@@ -36,7 +34,12 @@ export default class PostAddForm extends Component {
 
     onSubmit(event) {
         event.preventDefault();
-        this.props.onAdd(this.state.text);
+        const newText = this.state.text.trim();
+
+        if (newText !== "") {
+            this.props.onAdd(newText);
+        }
+
         this.setState({
             text: ""
         })

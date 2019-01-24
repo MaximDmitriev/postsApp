@@ -8,13 +8,9 @@ export default class PostListItem extends Component {
         super(props);
         this.state = {
             label: this.props.label,
-            // important: this.props.important,
-            // like: false,
             showForm: false
         }
 
-        // this.onImportant = this.onImportant.bind(this);
-        // this.onLike = this.onLike.bind(this);
         this.onToggleClass = this.onToggleClass.bind(this);
         this.onPostChange = this.onPostChange.bind(this);
 
@@ -24,19 +20,6 @@ export default class PostListItem extends Component {
         this.month = date.getMonth() + 1;
         this.year = date.getFullYear();
     } 
-
-    
-    // onImportant() {
-    //     this.setState(({important}) => ({
-    //         important: !important
-    //     }))
-    // }
-
-    // onLike() {
-    //     this.setState(({like}) => ({
-    //         like: !like
-    //     }))
-    // }
 
     onToggleClass() {
         this.setState(({showForm}) => ({
@@ -97,7 +80,8 @@ export default class PostListItem extends Component {
                     <button 
                         type="button" 
                         className="btn-star btn-sm"
-                        onClick={onToggleImportant}>
+                        onClick={onToggleImportant}
+                        >
                             <i className="fa fa-star"></i>
                     </button>
                     <button 

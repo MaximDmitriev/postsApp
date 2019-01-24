@@ -107,26 +107,24 @@ export default class App extends Component  {
     }
 
     onToggleImportant(id) {
-
-        this.setState(({data}) => {
-
-            const index = data.findIndex( item => item.id === id);
-            const newPost = data[index];
-            newPost.important = !newPost.important;
-            const newData = [...data.slice(0, index), newPost, ...data.slice(index + 1)]
-            return{
-                data: newData
-            }
-        });
+        this.onToggleMark(id, "important");
     }
 
     onToggleLiked(id) {
+        this.onToggleMark(id, "like");
+    }
 
+    onToggleMark(id, mark) {
         this.setState(({data}) => {
 
             const index = data.findIndex( item => item.id === id);
             const newPost = data[index];
-            newPost.like = !newPost.like;
+
+            for(let item in newPost) {
+                if(item === mark) {
+                    newPost[item] = !newPost[item];
+                }
+            }
             const newData = [...data.slice(0, index), newPost, ...data.slice(index + 1)]
             return{
                 data: newData
@@ -168,7 +166,7 @@ export default class App extends Component  {
         const allPosts = data.length;
 
         const visiblePosts = this.filterPost(this.searchPost(data, term), filter);
-        
+
         return (
             <AppWrapper>
                 <AppHeader 
