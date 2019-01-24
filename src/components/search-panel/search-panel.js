@@ -15,7 +15,7 @@ export default class SearchPanel extends Component {
     }
 
     onUpdateSeach(event) {
-        const term = event.target.value;
+        const term = event.target.value.toLowerCase();
         this.setState({term});
         this.props.onUpdateSeach(term);
     }
